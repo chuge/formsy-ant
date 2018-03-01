@@ -1,0 +1,168 @@
+.range-picker
+{
+  .clearfix
+  {
+    display: table;
+    clear: both;
+
+    content: '';
+  }
+  .ant-calendar-picker
+  {
+    .ant-calendar-range-picker
+    {
+      padding-left: 0;
+      &::after
+      {
+        .clearfix;
+      }
+      input
+      {
+        float: left;
+
+        padding-left: 15px;
+
+        cursor: pointer;
+        text-align: left !important;
+      }
+      span
+      {
+        float: left;
+
+        padding-left: 15px;
+
+        cursor: pointer;
+      }
+      .ant-calendar-picker-icon
+      {
+        right: 27px;
+
+        cursor: pointer;
+      }
+      &[disabled]
+      {
+        color: #091929;
+        background-color: #edf1f5;
+      }
+    }
+  }
+  &.error,
+  &.required
+  {
+    .ant-calendar-picker
+    {
+      .ant-calendar-range-picker
+      {
+        &.ant-input
+        {
+          border-color: #ea000f !important;
+        }
+      }
+    }
+  }
+}
+
+.ant-calendar-picker-container
+{
+  .ant-calendar-date
+  {
+    line-height: 22px;
+  }
+  .ant-calendar
+  {
+    font-size: 14px;
+  }
+  .ant-calendar-range-middle
+  {
+    margin-top: 4px;
+  }
+  .ant-calendar-input-wrap
+  {
+    height: 46px;
+  }
+  // 增加头部高度
+  .ant-calendar-input
+  {
+    height: 32px;
+  }
+  // 增加选择月份高度
+  .ant-calendar-header
+  {
+    line-height: 42px;
+
+    height: 42px;
+    .ant-calendar-year-panel
+    {
+      top: 46px;
+      .ant-calendar-year-panel-header
+      {
+        line-height: 42px;
+
+        height: 42px;
+      }
+      .ant-calendar-decade-panel-header
+      {
+        line-height: 42px;
+
+        height: 42px;
+      }
+    }
+    .ant-calendar-month-panel
+    {
+      top: 46px;
+      .ant-calendar-month-panel-header
+      {
+        line-height: 42px;
+
+        height: 42px;
+      }
+    }
+    a
+    {
+      top: 3px;
+    }
+  }
+  .ant-calendar-calendar-body
+  {
+    .ant-calendar-selected-day .ant-calendar-date
+    {
+      color: #fff !important;
+      background: #2b70d5;
+    }
+    .ant-calendar-cell
+    {
+      &.ant-calendar-today
+      {
+        span.ant-calendar-date
+        {
+          color: #2b70d5;
+          border: 1px solid #2b70d5;
+        }
+      }
+      span.ant-calendar-date
+      {
+        width: 24px;
+        height: 24px;
+        &:hover
+        {
+          background: #edf1f5;
+        }
+      }
+    }
+    .ant-calendar-in-range-cell
+    {
+      background: #edf1f5;
+      span.ant-calendar-date
+      {
+        background: #edf1f5;
+      }
+    }
+  }
+  .ant-calendar-today-btn
+  {
+    color: #2b70d5;
+  }
+  .ant-calendar-picker-clear {
+    display: none;
+  }
+}

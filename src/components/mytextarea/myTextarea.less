@@ -1,0 +1,23 @@
+@import '../../components/style/core/variables.less';
+
+textarea.ta-textarea {
+    font-size: 15px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 250px;
+    padding: 10px 0 10px 15px;
+
+    border: 1px solid #b6c7d3;
+    border-radius: 4px;
+    background-color: #fff;
+    &:focus {
+        border-color: @color-border-default-hover;
+    }
+    &:hover {
+        border-color: @color-border-default-hover;
+    }
+}

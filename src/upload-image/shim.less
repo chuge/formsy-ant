@@ -1,0 +1,47 @@
+@color-border-default-hover: red;
+
+.upload-image
+{
+  .init-image
+  {
+    height: 128px;
+
+    background: url('//yun.tuia.cn/tuia/tuia-advertiser/img/upload.jpg') no-repeat;
+    background-position: 50% 50%;
+  }
+}
+.ant-upload
+{
+  &.ant-upload-drag
+  {
+    &:hover
+    {
+      border-color: @color-border-default-hover !important;
+    }
+    p.ant-upload-drag-icon
+    {
+      .anticon
+      {
+        color: @color-border-default-hover !important;
+      }
+    }
+    .ant-upload-text
+    {
+      color: @color-border-default-hover !important;
+    }
+  }
+  .image-preview{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    border-radius: 6px;
+  }
+  .ant-spin-spinning{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+}

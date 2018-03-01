@@ -1,0 +1,22 @@
+@import "../../components/style/core/variables.less";
+
+.upload-image
+{
+    .init-image
+    {
+        height: 128px;
+
+        background: url('//yun.duiba.com.cn/tuia/tuia-advertiser/img/upload.jpg') no-repeat;
+        background-position: 50% 50%;
+    }
+}
+.ant-upload
+{
+    &.ant-upload-drag
+    {
+        border: 1px solid #d9d9d9;
+        &:hover {
+            border-color: @color-border-default-hover;
+        }
+    }
+}

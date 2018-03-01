@@ -1,0 +1,63 @@
+.range-picker
+{
+    .clearfix
+    {
+        display: table;
+        clear: both;
+
+        content: '';
+    }
+    .ant-calendar-picker
+    {
+        .ant-calendar-range-picker
+        {
+            padding-left: 0;
+            &::after
+            {
+                .clearfix;
+            }
+            input
+            {
+                float: left;
+
+                padding-left: 15px;
+
+                cursor: pointer;
+                text-align: left !important;
+            }
+            span
+            {
+                float: left;
+
+                padding-left: 15px;
+
+                cursor: pointer;
+            }
+            .ant-calendar-picker-icon
+            {
+                right: 27px;
+
+                cursor: pointer;
+            }
+            &[disabled]
+            {
+                background-color: #edf1f5;
+                color: #091929;
+            }
+        }
+    }
+    &.error,
+    &.required
+    {
+        .ant-calendar-picker
+        {
+            .ant-calendar-range-picker
+            {
+                &.ant-input
+                {
+                    border-color: #ea000f !important;
+                }
+            }
+        }
+    }
+}
