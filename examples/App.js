@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
-import {Form, FormItem, Input, Select, Slider, RadioGroup, Checkbox, CheckboxGroup, Switch, InputNumber, TTextarea, UploadImage, DatePicker} from '../src';
+import {Form, FormItem, Input, Select, Slider, RadioGroup, Checkbox,
+  CheckboxGroup, Switch, InputNumber, TTextarea, UploadImage,
+   DatePicker, TEditor, TTransfer, HourPicker, RegionSingle, TRegionMultiple} from '../src';
 import {Button} from 'antd';
-import Data from './Data';
+import {tags} from './Data';
 
-const {tags} = Data;
+tags.forEach((item,index) => {
+  item.key = index + '';
+});
 
 const Radio = RadioGroup.Radio;
 const Option = Select.Option;
+
+const province = '北京市';
+const city = '110101';
+
 const options = [
   { label: '苹果', value: 'Apple' },
   { label: '梨', value: 'Pear' },
@@ -37,6 +45,28 @@ class APP extends Component {
         </FormItem>
         <FormItem
           required
+          label="RegionSingle"
+        >
+          <RegionSingle name="RegionSingle" value={{province, city}}/>
+        </FormItem>
+        <FormItem
+          required
+          label="TRegionMultiple"
+        >
+          <TRegionMultiple name="TRegionMultiple" value={''} required/>
+        </FormItem>
+        <FormItem
+          required
+          label="TTransfer"
+        >
+          <TTransfer
+            name="TTransfer"
+            value="wmzy"
+            dataSource={tags}
+          />
+        </FormItem>
+        <FormItem
+          required
           label="Input Number"
         >
           <InputNumber
@@ -57,6 +87,18 @@ class APP extends Component {
             <Option key="swim" value="swim">swim</Option>
             <Option key="football" value="football">football</Option>
           </Select>
+        </FormItem>
+        <FormItem
+          required
+          label="Editor"
+        >
+          <TEditor
+            name="Editor"
+            required
+          />
+        </FormItem>
+        <FormItem required lable="HourPicker">
+          <HourPicker name="hourpicker" value={['00:00', '01:00']} />
         </FormItem>
         <FormItem
           required
@@ -83,6 +125,9 @@ class APP extends Component {
         </FormItem>
         <FormItem required label="DatePicker">
           <DatePicker name="DatePicker" pickerType="date" defaultValue="2011-12-12" style={{ width: 220 }} />
+        </FormItem>
+        <FormItem required label="RangePicker">
+          <DatePicker name="RangePicker" pickerType="range" defaultValue={["2011-12-12", "2012-12-12"]} style={{ width: 220 }} />
         </FormItem>
         <FormItem
           required

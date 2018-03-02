@@ -10,8 +10,14 @@ import RadioGroup from './radio-group';
 import Slider from './slider';
 import UploadImage from './upload-image';
 import DatePicker from './date-picker';
+import HourPicker from './hour-picker';
+import RegionSingle from './region-single';
+
+// 区分t-和没有前缀，方便以后维护识别哪些是antd扩展，哪些不是
 import TTransfer from './t-transfer';
 import TTextarea from './t-textarea';
+import TEditor from './t-editor';
+import TRegionMultiple from './t-region-multiple';
 
 module.exports = {
   FormItem,
@@ -24,8 +30,12 @@ module.exports = {
   CheckboxGroup,
   RadioGroup,
   Slider,
+  UploadImage,
+  DatePicker,
+  HourPicker,
   TTransfer,
   TTextarea,
-  UploadImage,
-  DatePicker
+  TEditor,
+  RegionSingle,
+  TRegionMultiple
 };

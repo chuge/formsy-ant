@@ -1,0 +1,244 @@
+@color-theme-default: #ff7746;
+@color-bg-default: #f3f3f3;
+@color-button-default: @color-theme-default;
+@color-button-default-hover: #ff642b;
+@color-button-default-active: #ff5112;
+
+@color-archor-default: @color-theme-default;
+@color-archor-blue: #6a93de;
+
+@color-font-default: @color-theme-default;
+@color-modal-title-default: @color-theme-default;
+@color-icon-default: @color-theme-default;
+@color-border-default-hover: @color-theme-default;
+
+
+//----------fxt-style-start----------
+//修改地区选框的大小，为设计稿提供大小。
+.region-modal
+{
+  z-index: 1051;
+  div.ant-modal-body
+  {
+    width: 640px;
+    height: 460px;
+    padding: 0;
+  }
+  //----------fxt-style-start----------
+  //地域选择弹窗 - title样式
+  .ant-modal-header
+  {
+    background: @color-modal-title-default;
+  }
+  //地域选择弹窗 - title样式
+  .ant-modal-title
+  {
+    color: #fff;
+  }
+  //地域选择弹窗 - 主体内容部分
+  .ant-modal-content
+  {
+    width: 640px;
+  }
+  //地域选择弹窗 - 底部
+  .ant-modal-footer
+  {
+    padding: 0 18px 15px 10px;
+
+    border-top: 0 solid #e9e9e9;
+  }
+  //地域选择弹窗 - 取消按钮
+  .ant-btn-ghost
+  {
+    margin-right: 15px;
+    padding: 6px 14px 7px 14px;
+
+    color: @color-button-default;
+    border-color: @color-button-default;
+  }
+  //地域选择弹窗 - 确定按钮
+  .ant-btn-primary
+  {
+    padding: 6px 14px 7px 14px;
+
+    border-color: @color-button-default;
+    background-color: @color-button-default;
+  }
+  //----------fxt-style-end----------
+}
+
+//----------fxt-style-end----------
+.region-wrap
+{
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  border-radius: 10px;
+  background: #fff;
+  .ui-region-country-check,
+  .ui-region-province-box,
+  .ui-region-text
+  {
+    background: #fff;
+  }
+  .ui-region-city-box
+  {
+    background: #fff0eb;
+  }
+  .ui-region-city
+  {
+    padding: 0 12px 2px 12px;
+  }
+  //----------fxt-style-start----------
+  //地域选择容器
+  .ui-region
+  {
+    width: 100%;
+  }
+  //将地区选择的背景色设置为白色
+  .ui-region-region-box1
+  {
+    background: #fff;
+  }
+  //checkbox选中前样式（底色）
+  .ui-checkbox-custom input:checked ~ label:before
+  {
+    border-color: rgba(119, 148, 148, .5);
+    background: #fff;
+  }
+  //checkbox选中后样式（打勾）
+  .ui-checkbox-custom input:checked ~ label:after
+  {
+    top: .12em;
+
+    border: .2em solid @color-button-default;
+    border-top: none;
+    border-right: none;
+  }
+  //checkbox外框样式
+  .ui-checkbox-custom label:before
+  {
+    width: 14px;
+    height: 14px;
+    margin-top: -1px;
+
+    border: 1px solid rgba(119, 148, 148, .5);
+    border-radius: 2px;
+    background: #fff;
+  }
+  //地区选择，未全选时，显示已选数量。
+  .ui-region-locator b
+  {
+    font-family: Arial, '微软雅黑', 'Microsoft YaHei', '华文细黑', STXihei, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 26px;
+
+    margin-left: 2px;
+
+    color: @color-font-default;
+    background: #fff;
+  }
+  //让label文字跟选框靠近些
+  label
+  {
+    padding-left: 18px;
+  }
+  //提高地区选框选择之间的间隔
+  .ui-region-region-box0,
+  .ui-region-region-box1,
+  .ui-region-country-check
+  {
+    height: 42px;
+    padding: 0 20px;
+  }
+  //提高国家选框选择之间的间隔
+  .ui-region-country-check
+  {
+    line-height: 42px;
+
+    background: #edf1f5;
+  }
+  //地区字体改为标准粗细
+  .ui-checkbox-custom label
+  {
+    font-size: 14px;
+    font-weight: normal;
+  }
+  //国家、省的字体改为加粗
+  .ui-region-region-check label,
+  .ui-region-country-check label
+  {
+    font-weight: bolder;
+  }
+  .ui-region-region-check
+  {
+    line-height: 25px;
+
+    width: 8em;
+    label
+    {
+      color: #0f293e;
+    }
+  }
+  .ui-region-province-box
+  {
+    line-height: 25px;
+
+    width: 500px;
+    .ui-region-province-item
+    {
+      width: 100px;
+    }
+    label
+    {
+      color: #0f293e;
+    }
+  }
+  .ui-region-country-check
+  {
+    line-height: 37px;
+
+    height: 37px;
+    label
+    {
+      color: #0f293e;
+    }
+  }
+  .ui-region-city-box
+  {
+    label
+    {
+      color: #091929;
+    }
+  }
+  .ui-region-region-box0
+  {
+    height: auto;
+    min-height: 37px;
+  }
+  .ui-region-region-box1
+  {
+    height: auto;
+  }
+  .ui-region-text-over
+  {
+    z-index: 997;
+
+    background: #fff0eb;
+    box-shadow: 0 3px 5px rgba(183,195,212,1);
+  }
+  ////----------fxt-style-end----------
+}
+.region-component
+{
+  .action
+  {
+    margin-left: 10px;
+
+    text-decoration: underline;
+  }
+}

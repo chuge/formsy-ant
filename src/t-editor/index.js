@@ -1,11 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { withFormsy } from 'formsy-react';
 import { omitFormsyProps } from '../util';
-
 import Shim from './shim';
 
-class FormsyTTransfer extends Component {
-
+class FormsyTEditor extends Component {
   static propTypes = {
     isPristine: PropTypes.func.isRequired,
     getErrorMessage: PropTypes.func.isRequired,
@@ -27,41 +25,19 @@ class FormsyTTransfer extends Component {
     }
   }
 
-  componentDidMount() {
-    let defaultVal = this.props.getValue();
-    Array.isArray(defaultVal) && defaultVal.length === 0 && this.props.setValue(undefined);
-  }
-
-  _select = (value) => {
+  _blur = (value) => {
     this.props.setValue(value);
   }
 
   render() {
-    let {
-      className,
-      placeholder,
-      dataSource,
-      isTag,
-      isSingle
+    const {
+      getValue
     } = this.props;
-    let value = this.props.getValue() || [];
-    let props2 = {
-      placeholder,
-      dataSource,
-      isTag,
-      isSingle,
-      value
-    };
 
-    return (
-      <div className={`mulit-select ${className || ''} clearfix`}>
-        <Shim {...props2} cbSelect={this._select} />
-        {
-          this.props.showRequired() && <p className='validation-required red-text'>至少选择一个标签</p>
-        }
-      </div>
-    );
+    return <div>
+      <Shim {...this.props} value={getValue()} cbBlur={this._blur} />
+    </div>;
   }
 }
 
-export default withFormsy(FormsyTTransfer);
+export default withFormsy(FormsyTEditor);

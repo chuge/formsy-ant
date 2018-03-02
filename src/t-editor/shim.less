@@ -1,0 +1,89 @@
+#editor {
+    display: none;
+}
+.simditor {
+    .simditor-wrapper {
+        .simditor-placeholder {
+            color: #dcdcdc !important;
+        }
+    }
+    .simditor-toolbar {
+        .toolbar-menu {
+            &.toolbar-menu-color {
+                width: 136px !important;
+                .color-list {
+                    height: inherit !important;
+                    &::after {
+                        display: table;
+                        clear: both;
+
+                        content: '';
+                    }
+                }
+            }
+            ul > li {
+                .menu-item {
+                    &[data-param='h1'],
+                    &[data-param='h2'],
+                    &[data-param='h4'],
+                    &[data-param='h5'] {
+                        display: none;
+                    }
+                }
+            }
+            &.toolbar-menu-image {
+                ul > li {
+                    &:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .simditor-body {
+        overflow-y: auto;
+
+        border-bottom: 1px solid #eee;
+        h3 {
+            margin: 0 !important;
+            margin-top: 10px !important;
+            margin-bottom: 10px !important;
+        }
+        p {
+            margin-bottom: 0 !important;
+        }
+        ul,
+        ol {
+            padding-left: 20px;
+        }
+        a {
+            color: #ff7746;
+            &:hover {
+                color: #ff7716;
+            }
+        }
+    }
+    .simditor-popover {
+        padding: 10px 8px !important;
+    }
+    .image-popover {
+        .link-settings {
+            .settings-field {
+                &:nth-child(2) {
+                    display: none;
+                }
+            }
+        }
+    }
+    .link-settings {
+        .settings-field{
+            height: auto !important;
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+}
+.save-text {
+    width: 120px;
+}

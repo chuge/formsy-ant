@@ -86,8 +86,8 @@ class FormsyDatePicker extends Component {
     let end = null;
 
     const daterange = getValue();
-    if (!!daterange) {
-      if (!!daterange[0] && !!daterange[1]) {
+    if (daterange) {
+      if (daterange[0] && daterange[1]) {
         start = new GregorianCalendar(zhCn);
         end = new GregorianCalendar(zhCn);
         start.setTime(new Date(daterange[0]));
