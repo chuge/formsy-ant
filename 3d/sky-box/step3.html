@@ -1,0 +1,185 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telphone=no, email=no">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+  <script>eruda.init();</script>
+  <title>CSS3D天空盒子</title>
+  <style>
+    html,
+    body {
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .stage {
+      perspective: 4.8rem;
+      perspective-origin: 50% 50%;
+    }
+
+    .cube {
+      width: 10.24rem;
+      height: 10.24rem;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+    }
+
+    .cube img {
+      width: 10.24rem;
+      height: 10.24rem;
+      position: absolute;
+    }
+
+    .cube img:nth-child(1) {
+      transform: translateZ(-5.12rem);
+    }
+
+    .cube img:nth-child(2) {
+      transform: rotateY(180deg) translateZ(-5.12rem);
+    }
+
+    .cube img:nth-child(3) {
+      transform: rotateY(90deg) translateZ(-5.12rem);
+    }
+
+    .cube img:nth-child(4) {
+      transform: rotateY(-90deg) translateZ(-5.12rem);
+    }
+
+    .cube img:nth-child(5) {
+      transform: rotateX(90deg) translateZ(-5.12rem);
+    }
+
+    .cube img:nth-child(6) {
+      transform: rotateX(-90deg) translateZ(-5.12rem);
+
+    }
+  </style>
+  <script>
+    var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+    var widthProportion = function () {
+      var doc = document.body || document.documentElement;
+      var p = doc.clientWidth;
+      var fontSize = p / 7.5;
+      if (fontSize >= 100) {
+        fontSize = 100;
+      }
+      return fontSize;
+    };
+    var changePage = function () {
+      document.getElementsByTagName('html')[0].setAttribute('style', 'font-size:' + widthProportion() + 'px !important');
+    };
+
+    changePage();
+    window.addEventListener(resizeEvt, changePage, false);
+  </script>
+</head>
+
+<body>
+
+  <div class="stage" id="stage">
+    <div class="cube">
+      <img src="img/front.jpg" alt="" />
+      <img src="img/back.jpg" alt="" />
+      <img src="img/left.jpg" alt="" />
+      <img src="img/right.jpg" alt="" />
+      <img src="img/bottom.jpg" alt="" />
+      <img src="img/top.jpg" alt="" />
+    </div>
+  </div>
+
+  <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    var BG_WIDTH = 1024,
+      BG_HEIGHT = 1024,
+      BG_NUMBER = 4,
+      PER_ANGLE = 360 / BG_NUMBER;
+    var allRotateY = 0;
+
+    var u = navigator.userAgent
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; // android??
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios??
+
+    var translateZ = (function calTranslateZ(opts) {
+      return Math.round(opts.width / (2 * Math.tan(Math.PI / opts.number)))
+    })({
+      width: BG_WIDTH,
+      number: BG_NUMBER
+    })
+
+    var curMouseX = 0;
+    var curMouseY = 0;
+    var lastMouseX = 0;
+    var lastMouseY = 0;
+    var lastAngleX = 0;
+    var lastAngleY = 0;
+    var aimAngleX = 0, aimAngleY = 0;
+    var curBgAngleX = 0, curBgAngleY = 0;
+
+    var bindTouchOrMouse = function () {
+      if (isAndroid || isiOS) {
+        document.addEventListener('touchstart', mouseDownHandler);
+        document.addEventListener('touchmove', mouseMoveHandler);
+      } else {
+        document.addEventListener('mousedown', mouseDownHandler);
+        document.addEventListener('mousemove', mouseMoveHandler);
+      }
+
+      function dragRotate(evtInfo) {
+        aimAngleX = (180 / Math.PI * (Math.atan((curMouseX - lastMouseX) / translateZ)) + lastAngleX)
+      }
+
+      function mouseDownHandler(evt) {
+        lastMouseX = evt.pageX || evt.targetTouches[0].pageX;
+        lastMouseY = evt.pageY || evt.targetTouches[0].pageY;
+        lastAngleX = aimAngleX;
+        lastAngleY = aimAngleY;
+      }
+
+      function mouseMoveHandler(evt) {
+        curMouseX = evt.pageX || evt.targetTouches[0].pageX;
+        curMouseY = evt.pageY || evt.targetTouches[0].pageY;
+
+        dragRotate({
+          pageX: curMouseX,
+          pageY: curMouseY
+        });
+
+      }
+    }
+
+    bindTouchOrMouse();
+
+    function initAnimate() {
+      var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame ||
+        function (callback) {
+          setTimeout(callback, 1000 / 60)
+        }
+
+      requestAnimationFrame(go)
+
+      // loop
+      function go() {
+        // bg 与 item 的位移增量速度的不一致，可形成视差运动
+        curBgAngleX += (aimAngleX - curBgAngleX);
+        // curBgAngleY += (aimAngleY - curBgAngleY);
+
+        console.log(aimAngleX);
+
+        $(".cube").css({
+          transform: "rotateY(" + -curBgAngleX + "deg)"
+        })
+
+        frameTimer = requestAnimationFrame(go);
+      }
+    }
+
+    initAnimate();
+
+  </script>
+</body>
+
+</html>

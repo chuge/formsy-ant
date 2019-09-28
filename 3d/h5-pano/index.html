@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>-->
+    <meta name="viewport" content="user-scalable=no" />
+    <title>双十一</title>
+    <script src="libs/extra/jquery-1.11.1.min.js"></script>
+    <script src="libs/extra/css3d.js"></script>
+    <script src="libs/extra/weixinapi.min.js"></script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #maskDiv,
+        #maskDiv2 {
+            width: 100%;
+            height: 100%;
+        }
+
+        #mask,
+        #share_mask {
+            width: 100%;
+            height: 100%;
+        }
+
+        #maskDiv img,
+        #maskDiv2 img {
+            display: block;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body onload="init();">
+
+    <div id="main" style="display: none">
+    </div>
+    <div id="maskDiv" style="display: none;">
+        <img id="mask" src="images/alert/mask.png" alt="遮罩">
+        <div id="alertcontent" style="display: none;">
+            <img id="alert1" src="images/alert/p1_alert1.png" alt="弹窗">
+            <img id="go" src="images/alert/go.png" alt="Go">
+            <img id="triangle" src="images/alert/triangle.png" alt="三角形">
+            <img id="close" src="images/alert/close.png" alt="关闭">
+        </div>
+    </div>
+    <script src="libs/extra/quanj.js?v=111"></script>
+    <script src="libs/extra/Tween.js"></script>
+    <script src="libs/extra/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<html>
+
+<head>
+  <title>CSS3D天空盒子</title>
+  <style>
+    html,
+    body {
+      /* overflow: hidden; */
+      margin: 0;
+    }
+
+    .stage {
+      perspective: 1024px;
+    }
+
+    .cube {
+      width: 2014px;
+      height: 2014px;
+      margin: 100px auto;
+      transform-style: preserve-3d;
+    }
+
+    .cube img {
+      width: 1024px;
+      height: 1024px;
+      position: absolute;
+    }
+
+    .cube img:nth-child(1) {
+
+    }
+    .cube img:nth-child(2) {
+      transform:  rotateY(180deg);
+    }
+    .cube img:nth-child(3) {
+      transform:  rotateY(90deg);
+    }
+    .cube img:nth-child(4) {
+      transform:  rotateY(-90deg);
+    }
+    .cube img:nth-child(5) {
+      transform:  rotateX(90deg);
+    }
+    .cube img:nth-child(6) {
+      transform:  rotateX(-90deg);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="stage" id="stage">
+    <div class="cube">
+      <img src="img/front.jpg" alt="" />
+      <img src="img/back.jpg" alt="" />
+      <img src="img/left.jpg" alt="" />
+      <img src="img/right.jpg" alt="" />
+      <img src="img/bottom.jpg" alt="" />
+      <img src="img/top.jpg" alt="" />
+    </div>
+  </div>
+</body>
+
+</html>

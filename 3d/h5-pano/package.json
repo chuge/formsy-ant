@@ -1,0 +1,15 @@
+{
+  "name": "media-internal",
+  "version": "1.0.0",
+  "description": "推啊媒体管理平台",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Yao, Guangyin",
+  "license": "",
+  "devDependencies": {
+    "ejs": "^2.5.5",
+    "express": "^4.13.4"
+  }
+}
